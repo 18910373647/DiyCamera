@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/filter_tip_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="85dp"
+        android:text="自拍滤镜"
+        android:textColor="@color/color_ffffff"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:shadowColor="#33000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="3.0"/>
+
+    <View
+        android:id="@+id/filter_line"
+        android:layout_width="48dp"
+        android:layout_height="4dp"
+        android:background="#ffff8200"
+        app:layout_constraintLeft_toLeftOf="@+id/filter_tip_tv"
+        app:layout_constraintRight_toRightOf="@+id/filter_tip_tv"
+        app:layout_constraintTop_toBottomOf="@+id/filter_tip_tv"
+        android:layout_marginTop="3dp"/>
+
+    <TextView
+        android:id="@+id/filter_nick_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/filter_line"
+        app:layout_constraintTop_toBottomOf="@+id/filter_line"
+        android:layout_marginTop="6dp"
+        android:text="日系"
+        android:textColor="@color/color_ffffff"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:shadowColor="#33000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="3.0"/>
+</android.support.constraint.ConstraintLayout>

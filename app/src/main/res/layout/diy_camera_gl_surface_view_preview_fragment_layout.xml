@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.xiang.sample.diycamera.view.DiyGLSurfaceView
+        android:id="@+id/gl_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/fps_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:singleLine="true"
+        android:textColor="@color/color_ffff00"
+        android:textSize="16dp"
+        android:visibility="invisible"/>
+
+    <com.xiang.sample.diycamera.view.LookupFilterSwitcher
+        android:id="@+id/lookup_filter_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="@+id/gl_surface_view"
+        app:layout_constraintRight_toRightOf="@+id/gl_surface_view"
+        app:layout_constraintTop_toTopOf="@+id/gl_surface_view"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_surface_view"/>
+
+    <com.xiang.sample.diycamera.view.DiyAdjustView
+        android:id="@+id/diy_adjust_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.xiang.sample.diycamera.view.DiySpecialEffectView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/diy_adjust_view"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="50dp"/>
+</android.support.constraint.ConstraintLayout>

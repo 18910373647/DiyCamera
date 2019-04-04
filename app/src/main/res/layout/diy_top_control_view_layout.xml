@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/top_control_setting_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/diy_tip_control_setting_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/top_control_switch_img"/>
+
+    <ImageView
+        android:id="@+id/top_control_switch_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/diy_top_control_switch_icon"
+        app:layout_constraintLeft_toRightOf="@+id/top_control_setting_img"
+        app:layout_constraintRight_toLeftOf="@+id/top_control_album_img"/>
+
+    <ImageView
+        android:id="@+id/top_control_album_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/diy_top_control_album_icon"
+        app:layout_constraintLeft_toRightOf="@+id/top_control_switch_img"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
