@@ -1,8 +1,10 @@
 package com.xiang.sample.diycameralibrary.filter.base
 
 import android.opengl.GLES20
+import android.util.Log
 import com.xiang.sample.diycameralibrary.utils.CameraParams
 import com.xiang.sample.diycameralibrary.utils.OpenGLUtils
+import com.xiang.sample.diycameralibrary.utils.TextureRotationUtils
 import java.nio.FloatBuffer
 
 abstract class AbsRenderingTextureFilter {
@@ -47,16 +49,35 @@ abstract class AbsRenderingTextureFilter {
         drawTexture(textureId, vertexFb, fragmentFb)
     }
 
+    private var mVertexBufferId = -1
     protected open fun drawTexture(textureId: Int, vertexFb: FloatBuffer, fragmentFb: FloatBuffer) {
         passShaderValue()
+
+
 
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0)
         GLES20.glBindTexture(getTextureType(), textureId)
         GLES20.glUniform1i(mTextureHandle, 0)
 
-        vertexFb.position(0)
-        GLES20.glVertexAttribPointer(mPositionHandle, 2, GLES20.GL_FLOAT, false, 0, vertexFb)
-        GLES20.glEnableVertexAttribArray(mPositionHandle)
+        if (isUseVBO()) {
+            if (mVertexBufferId == -1) {
+                val bufferIds = intArrayOf(1)
+                mVertexBufferId = bufferIds[0]
+                GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, mVertexBufferId)
+                GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, TextureRotationUtils.VERTEX_COORDS.size * 4, vertexFb, GLES20.GL_STATIC_DRAW)
+                GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0)
+            }
+            GLES20.glEnableVertexAttribArray(mPositionHandle)
+            GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, mVertexBufferId)
+            GLES20.glVertexAttribPointer(mPositionHandle, 2, GLES20.GL_FLOAT, false, 0, 0)
+            GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0)
+        } else {
+            vertexFb.position(0)
+            GLES20.glVertexAttribPointer(mPositionHandle, 2, GLES20.GL_FLOAT, false, 0, vertexFb)
+            GLES20.glEnableVertexAttribArray(mPositionHandle)
+        }
+
+
 
         fragmentFb.position(0)
         GLES20.glVertexAttribPointer(mTexCoordHandle, 2, GLES20.GL_FLOAT, false, 0, fragmentFb)
@@ -74,6 +95,10 @@ abstract class AbsRenderingTextureFilter {
         GLES20.glDisableVertexAttribArray(mPositionHandle)
         GLES20.glDisableVertexAttribArray(mTexCoordHandle)
         GLES20.glBindTexture(getTextureType(), 0)
+    }
+
+    protected open fun isUseVBO(): Boolean {
+        return true
     }
 
     open fun release() {

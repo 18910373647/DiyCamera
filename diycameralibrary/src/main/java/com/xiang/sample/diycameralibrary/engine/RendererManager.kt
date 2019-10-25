@@ -1,6 +1,8 @@
 package com.xiang.sample.diycameralibrary.engine
 
 import android.content.Context
+import android.opengl.GLES20
+import android.util.Log
 import android.util.SparseArray
 import com.xiang.sample.diycameralibrary.filter.base.BaseFilter
 import com.xiang.sample.diycameralibrary.filter.beauty.DiyBeautyFaceFilter
@@ -83,6 +85,7 @@ class RendererManager {
         if (mFilters[0] is DiyOESInputFilter) {
             (mFilters[0] as DiyOESInputFilter).setMatrix(matrix)
         }
+
         // 相机输入
         currentTexture = mFilters[0]?.drawFrameBuffer(currentTexture, mVertexBuffer!!, mTextureBuffer!!) ?: return
         // 美颜 磨皮

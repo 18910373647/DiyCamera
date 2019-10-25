@@ -2,8 +2,13 @@ package com.xiang.sample.diycameralibrary.filter.effect
 
 import com.xiang.sample.diycameralibrary.filter.base.BaseFilter
 import com.xiang.sample.diycameralibrary.filter.effect.edgeblur.DiyEdgeBlurFilter
+import com.xiang.sample.diycameralibrary.filter.effect.emboss.EmbossFilter
 import com.xiang.sample.diycameralibrary.filter.effect.rain.DiyRainDropFilter
 import com.xiang.sample.diycameralibrary.filter.effect.rain.DiyRainSlideFilter
+import com.xiang.sample.diycameralibrary.filter.effect.split.FourSplitScreenFilter
+import com.xiang.sample.diycameralibrary.filter.effect.split.HorizontalSplitScreenFilter
+import com.xiang.sample.diycameralibrary.filter.effect.split.VerticalSplitScreenFilter
+import com.xiang.sample.diycameralibrary.filter.effect.vr.VRFilter
 import com.xiang.sample.diycameralibrary.utils.SpecialEffectFilterParams
 import java.nio.FloatBuffer
 
@@ -29,6 +34,11 @@ class DiySpecialEffectFilter: BaseFilter() {
             1 -> DiyRainDropFilter()
             2 -> DiyRainSlideFilter()
             3 -> DiyEdgeBlurFilter()
+            4 -> VerticalSplitScreenFilter()
+            5 -> HorizontalSplitScreenFilter()
+            6 -> FourSplitScreenFilter()
+            7 -> EmbossFilter()
+            8 -> VRFilter()
             else -> BaseFilter()
         }
     }

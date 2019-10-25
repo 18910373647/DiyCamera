@@ -2,7 +2,7 @@ package com.xiang.sample.diycameralibrary.engine
 
 import android.app.Activity
 import android.opengl.GLSurfaceView
-import android.support.annotation.IntDef
+import androidx.annotation.IntDef
 import android.view.SurfaceView
 import android.view.TextureView
 import com.xiang.sample.diycameralibrary.interfaces.ICameraFpsListener

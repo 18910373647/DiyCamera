@@ -2,6 +2,7 @@ package com.xiang.sample.diycameralibrary.filter.effect.edgeblur
 
 import android.opengl.GLES20
 import com.xiang.sample.diycameralibrary.filter.base.BaseFilter
+import java.nio.FloatBuffer
 
 class EdgeBlurFilter: BaseFilter() {
     private val UNIFORM_OFFSET = "offset"

@@ -3,14 +3,14 @@ package com.xiang.sample.diycamera.view
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.OrientationHelper
-import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.xiang.sample.diycamera.R
 import com.xiang.sample.diycameralibrary.utils.SpecialEffectFilterParams
 import com.xiang.sample.globallibrary.DiyCameraKit
@@ -26,10 +26,10 @@ class DiySpecialEffectView @JvmOverloads constructor(context: Context, attr: Att
     private fun initView() {
         LayoutInflater.from(context).inflate(R.layout.diy_special_effect_view_layout, this)
 
-        recycler_view.layoutManager = LinearLayoutManager(context, OrientationHelper.HORIZONTAL, false)
+        recycler_view.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         recycler_view.overScrollMode = View.OVER_SCROLL_NEVER
         recycler_view.addItemDecoration(object: RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect?, view: View?, parent: RecyclerView?, state: RecyclerView.State?) {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 val position = parent?.getChildAdapterPosition(view) ?: return
                 val total = parent.adapter?.itemCount ?: return
 
@@ -54,6 +54,11 @@ class DiySpecialEffectAdapter: RecyclerView.Adapter<DiySpecialEffectViewHolder>(
         mData.add(SpecialEffectBean(1, "雨滴掉落"))
         mData.add(SpecialEffectBean(2, "雨滴滑落"))
         mData.add(SpecialEffectBean(3, "边框模糊"))
+        mData.add(SpecialEffectBean(4, "上下分割"))
+        mData.add(SpecialEffectBean(5, "左右分割"))
+        mData.add(SpecialEffectBean(6, "四分割"))
+        mData.add(SpecialEffectBean(7, "浮雕"))
+        mData.add(SpecialEffectBean(7, "VR"))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiySpecialEffectViewHolder {

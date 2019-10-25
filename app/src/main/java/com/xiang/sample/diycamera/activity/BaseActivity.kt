@@ -1,9 +1,9 @@
 package com.xiang.sample.diycamera.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.tbruyelle.rxpermissions2.RxPermissions
 
 abstract class BaseActivity: AppCompatActivity() {

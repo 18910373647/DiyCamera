@@ -1,11 +1,11 @@
 package com.xiang.sample.diycamera.view
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
-import android.support.v4.view.PagerAdapter
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.*
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
 import com.xiang.sample.diycamera.R
 import com.xiang.sample.diycamera.bean.LookupFilterBean

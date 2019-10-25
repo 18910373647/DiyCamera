@@ -53,7 +53,7 @@ abstract class AbsRenderingFrameBufferFilter: AbsRenderingTextureFilter() {
         return onDrawFrameBuffer(textureId, vertexFb, fragmentFb)
     }
 
-    protected open fun onDrawFrameBuffer(textureId: Int, vertexFb: FloatBuffer, fragmentFb: FloatBuffer): Int {
+    open fun onDrawFrameBuffer(textureId: Int, vertexFb: FloatBuffer, fragmentFb: FloatBuffer): Int {
         GLES20.glViewport(0, 0, CameraParams.instance.mPreviewWidth, CameraParams.instance.mPreviewHeight)
         initFrameBuffer(CameraParams.instance.mPreviewWidth, CameraParams.instance.mPreviewHeight)
         if (mFrameBuffers == null || mFrameBufferTextures == null) {

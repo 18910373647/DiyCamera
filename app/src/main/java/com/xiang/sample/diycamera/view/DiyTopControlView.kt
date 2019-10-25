@@ -1,10 +1,10 @@
 package com.xiang.sample.diycamera.view
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.xiang.sample.diycamera.R
 import kotlinx.android.synthetic.main.diy_top_control_view_layout.view.*
 

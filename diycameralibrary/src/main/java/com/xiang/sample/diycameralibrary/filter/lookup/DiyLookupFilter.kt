@@ -39,6 +39,7 @@ class DiyLookupFilter(context: Context?): BaseFilter() {
                 FilterMethodHelper.colorLookup2DSquareLUT() +
                 "\n" +
                 "void main() {\n" +
+//                "    gl_FragColor = texture2D(${UNIFORM_INPUT_TEXTURE + 1}, $VARYING_TEXTURE);\n" +
                 "    vec4 color = texture2D($UNIFORM_INPUT_TEXTURE, $VARYING_TEXTURE);\n" +
                 "    vec4 current = colorLookup2DSquareLUT(color, 64, intensity, ${UNIFORM_TEXTURE_BASE + 1}, 512.0, 512.0);\n" +
                 "    vec4 next = colorLookup2DSquareLUT(color, 64, intensity, ${UNIFORM_TEXTURE_BASE + 2}, 512.0, 512.0);\n" +

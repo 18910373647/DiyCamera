@@ -1,12 +1,11 @@
 package com.xiang.sample.diycamera.view
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.RadioGroup
 import android.widget.SeekBar
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.xiang.sample.diycamera.R
 import com.xiang.sample.diycameralibrary.utils.LookupFilterParams
 import com.xiang.sample.diycameralibrary.utils.SpecialEffectFilterParams

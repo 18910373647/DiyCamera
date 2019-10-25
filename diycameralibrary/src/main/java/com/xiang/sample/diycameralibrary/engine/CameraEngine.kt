@@ -4,13 +4,14 @@ import android.app.Activity
 import android.graphics.Rect
 import android.graphics.SurfaceTexture
 import android.hardware.Camera
+import android.util.Log
 import android.view.Surface
 import android.view.SurfaceHolder
 import com.xiang.sample.diycameralibrary.utils.CameraErrno
 import com.xiang.sample.diycameralibrary.utils.CameraParams
 import java.lang.Long.signum
 
-class CameraEngine private constructor(): Camera.AutoFocusCallback {
+class CameraEngine private constructor(): Camera.AutoFocusCallback, Camera.FaceDetectionListener {
     private var mCamera: Camera? = null
 
     companion object {
@@ -62,6 +63,7 @@ class CameraEngine private constructor(): Camera.AutoFocusCallback {
         mCamera!!.setDisplayOrientation(rotation)
         setPreviewSize(mCamera!!, expectWidth, expectHeight)
         setPictureSize(mCamera!!, expectWidth, expectHeight)
+        mCamera!!.setFaceDetectionListener(this)
     }
 
     fun setPreviewBuffer(cb: Camera.PreviewCallback, buffer: ByteArray) {
@@ -80,6 +82,7 @@ class CameraEngine private constructor(): Camera.AutoFocusCallback {
 
         mCamera!!.setPreviewTexture(texture)
         mCamera!!.startPreview()
+        mCamera!!.startFaceDetection()
     }
 
     /**
@@ -317,6 +320,9 @@ class CameraEngine private constructor(): Camera.AutoFocusCallback {
      */
     private fun chooseFocusMode(parameter: Camera.Parameters): String {
         val supportFocusModes = parameter.supportedFocusModes
+        supportFocusModes.forEach {
+            Log.i("chengqixiang", "focus mode === $it")
+        }
 
         val result = if (supportFocusModes.contains(Camera.Parameters.FOCUS_MODE_AUTO)) {
             Camera.Parameters.FOCUS_MODE_AUTO
@@ -376,5 +382,11 @@ class CameraEngine private constructor(): Camera.AutoFocusCallback {
      */
     override fun onAutoFocus(success: Boolean, camera: Camera?) {
 
+    }
+
+    override fun onFaceDetection(faces: Array<out Camera.Face>?, camera: Camera?) {
+        faces?.forEach {
+//            Log.i("chengqixiang", " left === ${it.rect.left} right === ${it.rect.right} top === ${it.rect.top} bottom === ${it.rect.bottom}")
+        }
     }
 }
